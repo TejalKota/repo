@@ -1,0 +1,56 @@
+1. create a repo
+mkdir gitgitlab
+cd gitgitlab
+git init
+
+2. create branches
+git status
+git checkout -b branch1
+git checkout -b branch2
+
+3.Perform Add, Commit, Push, Pull
+Add and Commit(local): 
+git add .
+git commit -m ""
+
+Push(local to remote):
+git remot add origin url
+git push --set-upstream origin master
+
+Pull(remote to local):
+git pull 
+
+4. Undo commits
+git reset HEAD~1
+
+5. Fork a project, Open and merge Pull request
+git clone url(gitgitlab repo)
+git remote -v
+git remote rename origin upstream
+git remote -v
+git remote add origin url
+git remote -v
+2 remotes:
+• origin - our own fork, where we have read and write access
+• upstream - the original, where we have read-only access
+
+6. Merge and Rebase
+git checkout branch3
+git merge master
+git checkout master
+git rebase branch3
+7. Squashing Commits
+git checkout -b squash
+echo "m1" >> README.md
+git add .
+git commit -a -m ""
+echo "m2" >> README.md
+git add .
+git commit -a -m "m2 commited"
+git rebase -i HEAD~3
+clr+i
+git push origin squash
+8. Delete local & remote branches
+git branch -d branch1
+git push origin --delete branch2
+

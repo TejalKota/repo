@@ -1,0 +1,6 @@
+Set up the Git Server & use it.
+Step 1: Created a folder Git_Server in c drive users public
+Step 2: Opened git bash here.
+Step 3: Initialized a new folder in Git_Server. $git init tejal.git --bare
+Step 4: Initialized client repository. $git clone C:/Users/Public/Git_Server/tejal.git
+

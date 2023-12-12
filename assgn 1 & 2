@@ -1,0 +1,59 @@
+Git and github, git and gitlab
+1. create a repo
+git --version
+git config --global user.email "kotatejal12@gmail.com"
+git config --global user.name "Tejal Kota"
+mkdir gitgithub
+cd gitgithub
+git init
+git status
+git add index.html
+git status
+2. create branch
+git branch git-images
+git branch
+git checkout git-images
+git status
+git add --all
+git status
+git commit -m ""
+3. add,commit,push,pull
+git add index.html
+git add --all
+git status
+Commit
+
+git commit -m ""
+Push
+
+git remote add origin url
+git push --set-upstream origin master
+Pull
+
+git status
+git pull origin
+
+4. fork a project,open,merge pull req
+
+cd gitgithubassgn1
+git status
+git log
+git diff origin/master
+5. Merge and Rebase
+git merge origin/master
+git status
+git checkout branch2
+git rebase master
+
+6. Squashing commits
+git log --oneline
+git rebase -i eb2ced9
+pick replace squash
+7. del branches
+git branch -d branch2
+
+8. undo commits
+git reset --soft HEAD~2
+git status
+
+

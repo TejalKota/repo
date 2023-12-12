@@ -1,0 +1,3 @@
+Use Jenkins “Deploy to container” plugin and "Build pipeline" plugin to implement continuous deployment and delivery of a project.
+https://www.tutorialspoint.com/jenkins/jenkins_continuous_deployment.htm
+https://www.javatpoint.com/jenkins-continuous-deployment#:~:text=Step%201%3A%20On%20the%20Jenkins,on%20Install%20without%20Restart%20button.

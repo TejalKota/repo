@@ -1,0 +1,29 @@
+Create a web application, Commit changes to GitHub/GitLab repository.
+Use GitHub/GitLab, Maven, Tomcat with Jenkins. Automate Deployment of
+the above-mentioned application to a container using Jenkins plugin,
+"Deploy to container".
+
+
+1. check environment virables
+2. in manage jenkins go to tools goto Git installations in Git name Default and Path C:\Program Files\Git\bin\git.exe
+3. go to JDK installations Name JDK and JAVA_HOME C:\ProgramFiles\Java\jdk-11
+4. go to Maven Jenkins tools in Maven installations add Maven Name Maven and Install automatically and set version.
+5. go to tejalmaven repo
+6. in plugins installed plugins Deploy to container Plugins 
+7. go to local where tomcat is installed open tomcat-users.xml 
+<!--
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
+  <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
+  <user username="role1" password="<must-be-changed>" roles="role1"/>
+-->
+<user username="deployer" password="deployer" roles="manager-script"/>
+</tomcat-users>
+
+8. create a new item in jenkins as MavenGit select Maven project
+9. go to configuration source code mgmt select Git in repositories give repo url tejalmaven repo and branch to build down */master
+10. open build triggers select Poll SCM Schedule * * * * *
+11. go to post steps Invoke top level Maven targets keep Maven Version as Maven and Goals write clean install
+12. go to post build actions Deploy war/ear to container there **/*war and Context Path SimpleMavne add containers Tomcat 8.x remote and credentils deployer and add tomcat url localhost:8081
+13. and console output

@@ -1,0 +1,32 @@
+1. Set up a Jenkins job that picks up a Java application from a GitHub repository, builds it, and runs it.
+
+2. Set up a Jenkins job that picks up a Python application from a GitHub repository, builds it, and runs it.
+
+Instructions for submitting assignments:
+· The file must contain steps, commands & screenshots.
+· Submit pdf file.
+
+1. Set up a Jenkins job that picks up a Java application
+from a GitHub repository, builds it, and runs it.
+
+Download the generic java package(.war)
+Java - jar Jenkins.war
+Step 1 : Accessed the Jenkins dashboard and initiated the creation of
+a new item.
+Step 2: Specified the name for the new item and selected the
+'Freestyle project' option.
+Step 3: Entered project-specific details in the Description section.
+Step 4: Created a Java project and saved it in a local folder. in C jenkins
+Step 5: Pushed the Java project to the GitHub repository to make it
+available remotely.Github graphds.git
+Step 6: Added the Repository URL.in general jenkins github proj add url
+Step 7: In the "Add build step" selected the "Execute
+Windows batch command" and entered the following
+command to compile the java code. command javac assgn.java java assgn
+Step 8: In the Build History section, monitored the status and
+progress of the initiated builds.
+Step 9: Console Output to see the status of the build.
+
+
+fr python jenkinspy repo on git same steps command py jpy.py Step 8: In the Build History section, monitored the status and
+progress of the initiated builds.  Step 9: Console Output to see the status of the build.

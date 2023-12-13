@@ -1,1 +1,18 @@
-
+Step 1 : Install plugins. all docker plugins
+Step 2: Create a new item.
+Step 3: Install Docker. on pc
+Step 4: Go to docker hub settings Security.
+Step 5: Generate a new access token.
+Step 6: Navigate to credentials in Jenkins.
+Step 7: Create a new credentials. with username paste the pwd copied earlier I.e the access token, and ID as dockerhub_id 
+Step 8: In Configurations select poll SCM.under build triggers.
+Step 9: Create a new Github repo. as gitjenkinsintegration.
+Step 10: Create these files. already there.
+Step 11: Add the link of github to Jenkins pipeline. in Jenkins configuration 
+where definition pipeline script from SCM, SCM as Git and in Repositories put repo url and in credentials dockerhub_id.
+Step 12: Specify the branch as main.
+apply and save.
+Step 13: Create a new docker repository. in website.
+just build and 
+in cmd put docker images command 
+to view images description. 

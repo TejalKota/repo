@@ -1,1 +1,71 @@
 jenkins file to execute any java application. keep the application and jenkinsfile on github
+Step 1: Create a new item as pipeline.
+in pipeline configuration Step 2: Click on advanced project options, add a name and apply and save.
+Step 3: Go to Configuration pipeline and select HelloWorld Script and save.
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+
+}
+}
+}
+}
+
+Step 4: Click on build now.
+Step 5: Click on logs.
+Step 6: Can Create three stages as build, run and deploy. Apply and Save.
+pipeline {
+
+agent any
+
+stages {
+
+stage("Build') {
+
+steps (
+
+echo 'Build Application'
+
+}
+}
+
+stage("Test') {
+
+steps {
+
+echo 'Test Application'
+
+}
+
+}
+
+stage('Deploy') {
+
+steps {
+
+echo 'Deploy Application
+
+}
+
+}
+
+}
+
+this in pipeline Script
+Step 7: Click on build now.
+Step 8: Go to pipeline and under definition click on pipeline script from SCM , 
+
+under SCM select Git and paste git repository HelloWorld URL.
+
+in github Step 9: Create a new file named “Jenkinsfile” in github repo and paste the 
+
+pipeline script.
+
+save and build
+
+

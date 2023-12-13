@@ -1,1 +1,149 @@
+build a docker img and push to docker hub and pull.
+
+
+Create a new repository in Github named as “Jenkins-docker”.
+
+Add the Docker hub credentials to Jenkins.
+
+First Step: Log into your Docker Hub account
+
+Second Step: Click `Account Settings`
+
+Third Step: Click `Security`
+
+Fourth Step: Click `New Access Token`
+
+Fifth Step: Add Access Token Description
+
+
+After adding the access token description, click `Generate`. Copy and save the 
+
+generated access token. You will go back to the Jenkins `Manage Credentials` 
+
+and add the new credentials as shown below:
+
+Go to the global credentials (unrestricted) and click on Add Credentials.
+Add the credentials and the docker generated access token as the password
+
+and click on create.
+
+Creating Project Files
+
+In your PC, create a new folder named `jenkins-docker`. In the folder, create a 
+
+file named `Dockerfile` without any extension and add the following Docker 
+
+command:
+
+FROM alpine:3.13.5
+
+This command will instruct Docker to build an Alpine-based Docker image. We 
+
+have a very simple Dockerfile with only a single instruction/command. Next, 
+
+create a file named `Jenkinsfile` without any extension. Open the file and the 
+
+following Jenkins Pipeline stages:
+
+pipeline {
+
+ agent any
+
+ options {
+
+ buildDiscarder(logRotator(numToKeepStr: '5'))
+
+ }
+
+ environment {
+
+ DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+
+ }
+
+ stages {
+
+ stage('Build') {
+
+ steps {
+
+sh 'docker build -t lloydmatereke/jenkins-docker-hub .'
+
+ }
+
+ }
+
+ stage('Login') {
+
+ steps {
+
+ sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u 
+
+$DOCKERHUB_CREDENTIALS_USR --password-stdin'
+
+ }
+
+ }
+
+ stage('Push') {
+
+ steps {
+
+ sh 'docker push lloydmatereke/jenkins-docker-hub'
+
+ }
+
+ }
+
+ }
+
+ post {
+
+ always {
+
+ sh 'docker logout'
+
+ }
+
+ }
+
+}
+
+
+thus will be in C drive Jenkins docker 
+There two files a dockerfile and jenkins and push theses to github 
+these are push to github in jenkins-docker 
+Creating a Jenkins Job
+
+Step One:Go back to the Jenkins dashboard and click `Create a job`
+
+Second Step: Enter the item name
+
+Third step: Select the `Multibranch Pipeline`, then click `OK`
+
+Fourth step: Configure the Pipeline
+
+Add the `GitHub credentials` and `Repository HTTPS URL` to configure the 
+
+Jenkins pipeline:
+
+Scanning the Repository
+
+After configuring the Pipeline, Jenkins starts scanning the repository until it 
+
+finds a `Jenkinsfile` as shown below:
+
+From the image above Jenkins, Jenkins has scanned the repository and found a 
+
+`Jenkinsfile` in the `main` branch. Jenkins will use `Jenkinsfile` to run the 
+
+Jenkins pipeline.
+
+Running the Jenkins Pipeline
+
+After scanning the repository, Jenkins will start the Jenkins pipeline using the 
+
+`Jenkinsfile`. Create a new item as “dockerhub” and select pipeline.
+
+To get the Pipeline output, click on the `Console Output` as shown below:
 
